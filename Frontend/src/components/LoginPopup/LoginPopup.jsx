@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./LoginPopup.css";
 import { assets } from "../../assets/assets";
 import { useContext } from "react";
-import { StoreContext } from "../../context/StoreContext";
+import { StoreContext } from "../../context/storeContext";
 import axios from "axios";
 
 const LoginPopup = ({ setShowLogin }) => {
@@ -33,8 +33,8 @@ const LoginPopup = ({ setShowLogin }) => {
     const response = await axios.post(newUrl, data);
 
     if (response.data.success) {
-      setToken(response.data.token);
-      localStorage.setItem("token", response.data.token);
+      setToken(response.data.data);
+      localStorage.setItem("token", response.data.data);
       setShowLogin(false);
     } else {
       alert(response.data.message);
