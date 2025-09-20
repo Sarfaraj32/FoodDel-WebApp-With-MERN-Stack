@@ -7,6 +7,7 @@ import foodRouter from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 
 dotenv.config();
+
 // app config
 const app = express();
 const port = process.env.PORT || 4000;
