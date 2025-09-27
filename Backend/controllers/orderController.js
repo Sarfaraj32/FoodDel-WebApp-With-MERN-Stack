@@ -11,7 +11,7 @@ const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
   try {
     const newOrder = new OrderModel({
-      userId: req.body.userId,
+      userId: req.userId,
       items: req.body.items,
       amount: req.body.amount,
       address: req.body.address,
