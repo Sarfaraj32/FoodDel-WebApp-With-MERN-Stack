@@ -88,4 +88,17 @@ const listOrders = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder, usersOrder, listOrders };
+// Api for Updating Order Status
+const updateStatus = async (req, res) => {
+  try {
+    await OrderModel.findByIdAndUpdate(req.body.orderId, {
+      status: req.body.status,
+    });
+    res.json({ success: true, message: "Status Updated" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+export { placeOrder, verifyOrder, usersOrder, listOrders, updateStatus };
