@@ -17,7 +17,7 @@ const placeOrder = async (req, res) => {
       address: req.body.address,
     });
     await newOrder.save();
-    await UserModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
+    await UserModel.findByIdAndUpdate(req.userId, { cartData: {} });
 
     const line_items = req.body.items.map((item) => ({
       price_data: {
