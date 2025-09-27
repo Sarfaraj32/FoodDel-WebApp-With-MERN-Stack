@@ -77,4 +77,15 @@ const usersOrder = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder, usersOrder };
+// listing Admin Orders for Backend
+const listOrders = async (req, res) => {
+  try {
+    const orders = await OrderModel.find({});
+    res.json({ success: true, data: orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+export { placeOrder, verifyOrder, usersOrder, listOrders };
